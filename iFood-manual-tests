@@ -1,0 +1,36 @@
+# Bug Report - iFood: Conflito de Telefone em Login 
+
+ID: B-001  
+Severidade: ⚠️ High (Bloqueia acesso do usuário)  
+
+## 📱 Descrição  
+Ao tentar login com Google usando número de telefone já cadastrado em outra conta:  
+1. Sistema não informa sobre o conflito  
+2. Fluxo trava sem feedback claro  
+3. Usuário fica preso em loop de tentativas  
+
+## 🔍 Passos para Reproduzir  
+1. Cadastre-se manualmente com "(11) 98123-4321"  
+2. Saia da conta  
+3. Tente logar com Google usando o MESMO telefone  
+
+## 🎯 Comportamento Esperado  
+- Mensagem clara:  
+  Este telefone está vinculado a outra conta. Use:  
+  🔹 Recuperação de senha  
+  🔹 Login original 
+
+## ❌ Comportamento Atual  
+- Tela congela ou exibe erro genérico  
+- Nenhuma orientação para resolver  
+
+## 📸 Evidências  
+Link interno do Google Drive (acesso apenas para equipe QA)   
+
+## 💡 Sugestão Técnica  
+```javascript
+// Validação no fluxo OAuth
+if (phoneExistsInDatabase && !isOriginalAuthMethod(phone)) {
+  showPhoneConflictModal();
+  abortLogin();
+}
