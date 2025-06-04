@@ -1,5 +1,5 @@
-# Bug Report - iFood: Conflito de Telefone em Login 
-
+# Bug Report - Conflito de Telefone em Login 
+Este projeto é independente e não possui afiliação com o iFood. As informações são baseadas em testes públicos e não revelam dados confidenciais.  
 ID: B-001  
 Severidade: ⚠️ High (Bloqueia acesso do usuário)  
 
@@ -10,7 +10,7 @@ Ao tentar login com Google usando número de telefone já cadastrado em outra co
 3. Usuário fica preso em loop de tentativas  
 
 ## 🔍 Passos para Reproduzir  
-1. Cadastre-se manualmente com "(11) 98123-4321"  
+1. Cadastre-se manualmente com "(11) 00123-4321"  
 2. Saia da conta  
 3. Tente logar com Google usando o MESMO telefone  
 
